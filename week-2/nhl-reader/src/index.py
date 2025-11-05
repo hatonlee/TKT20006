@@ -1,20 +1,17 @@
-from player import Player
-from player_reader import PlayerReader
-from player_stats import PlayerStats
+from cli import Cli, CustomConsole, CustomPrompt
+
 
 def main():
-    url = "https://studies.cs.helsinki.fi/nhlstats/2024-25/players"
-    nationality = "FIN"
-    reader = PlayerReader(url)
-    stats = PlayerStats(reader)
-    players = stats.top_points_by_nationality(nationality)
+    prompt = CustomPrompt()
+    console = CustomConsole()
+    cli = Cli(prompt, console)
 
-    print("Players with nationality [{nationality}]:")
-    print(f"{"Name":<30} {"Team":>20} {"Points":>15}")
-    print("-" * (20 + 15 + 10 + 10 + 10 + 4 + 4))
+    console.print("Welcome to NHL statistics viewer.")
+    console.print("Type 'help' to see the list of available commands.")
 
-    for player in players:
-        print(player)
+    while True:
+        cli.execute()
+
 
 if __name__ == "__main__":
     main()
