@@ -1,5 +1,5 @@
 class All:
-    def test(self):
+    def test(self, player):
         return True
 
 
