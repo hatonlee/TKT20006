@@ -7,9 +7,6 @@ class QueryBuilder:
     def build(self):
         return self.query
 
-    def test(self, player):
-        return self.query.test(player)
-
     def plays_in(self, team):
         return QueryBuilder(And(self.query, PlaysIn(team)))
 
@@ -20,4 +17,4 @@ class QueryBuilder:
         return QueryBuilder(And(self.query, HasFewerThan(value, attr)))
 
     def one_of(self, *query):
-        return QueryBuilder(Or(*query))
+        return QueryBuilder(Or(*(q.build() for q in query)))
