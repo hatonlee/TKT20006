@@ -17,6 +17,18 @@ class Tuomari:
     def __str__(self) -> str:
         return f"Pelitilanne: {self.ekan_pisteet} - {self.tokan_pisteet}\nTasapelit: {self.tasapelit}"
 
+    def on_loppu(self, target: int = 5) -> bool:
+        """Palauttaa True, jos jompikumpi pelaajista on saavuttanut `target` voittoa."""
+        return self.ekan_pisteet >= target or self.tokan_pisteet >= target
+
+    def voittaja(self, target: int = 5):
+        """Palauttaa 'eka' tai 'toka' jos voittaja on olemassa, muuten None."""
+        if self.ekan_pisteet >= target:
+            return 'eka'
+        if self.tokan_pisteet >= target:
+            return 'toka'
+        return None
+
     def _tasapeli(self, eka: Siirto, toka: Siirto) -> bool:
         return eka == toka
 

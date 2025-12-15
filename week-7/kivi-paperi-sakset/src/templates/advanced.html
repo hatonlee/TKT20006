@@ -16,11 +16,20 @@
         <option value="s">Sakset</option>
         <option value="p">Paperi</option>
       </select>
-      <button type="submit">Pelaa</button>
+      <button type="submit" {% if game.tuomari.on_loppu() %}disabled{% endif %}>Pelaa</button>
     </form>
 
     <h2>Tilanne</h2>
     <pre>{{ game.tuomari }}</pre>
+
+    {% if game.tuomari.on_loppu() %}
+      <p><strong>Peli päättyi.</strong>
+      {% if game.tuomari.ekan_pisteet > game.tuomari.tokan_pisteet %}
+        Voittaja: Ensimmäinen pelaaja
+      {% else %}
+        Voittaja: Tekoäly
+      {% endif %}</p>
+    {% endif %}
 
     <p><a href="/">Takaisin</a></p>
   </body>
