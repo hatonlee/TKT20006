@@ -39,18 +39,18 @@ class TestKsp(unittest.TestCase):
 
     def test_game_ends_at_five_pvp(self):
         game = KspPelaajaVsPelaaja()
-        # First player wins 5 times
-        for _ in range(5):
+        # First player wins 3 times
+        for _ in range(3):
             game.pelaa_siirrot(Siirto.KIVI, Siirto.SAKSET)
-        self.assertEqual(game.tuomari.ekan_pisteet, 5)
+        self.assertEqual(game.tuomari.ekan_pisteet, 3)
         # further submits should have no effect
         game.pelaa_siirrot(Siirto.KIVI, Siirto.SAKSET)
-        self.assertEqual(game.tuomari.ekan_pisteet, 5)
+        self.assertEqual(game.tuomari.ekan_pisteet, 3)
 
     def test_game_ends_at_five_ai(self):
         game = KspYksinkertainenTekoaly()
         # simulate end state by setting points directly
-        game.tuomari.ekan_pisteet = 5
+        game.tuomari.ekan_pisteet = 3
         # calling pelaa_eka should have no effect
         before = (game.tuomari.ekan_pisteet, game.tuomari.tokan_pisteet)
         game.pelaa_eka(Siirto.KIVI)
