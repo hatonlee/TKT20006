@@ -1,0 +1,8 @@
+- Agentti päätyi toimivaan ratkaisuun
+- Testasin ratkaisun toimivuutta kokeilemalla sovellusta manuaalisesti
+- Kokeilin lähestulkoon kaikkia eri ekvivalenssiluokan syötekombinaatioita, joten olen suhteellisen varma, että ratkaisu toimii oikein.
+- Jouduin antamaan agentille yhteensä 4 ylimääräistä promptia.
+- Agentin testit olivat hyviä, mutta liian laajoja. Testit olisi pitänyt pilkkoa pienempiin kokonaisuuksiin.
+- Agentin koodin ymmärrettävyys oli heikkoa. Alkuperäisen ohjelman rakenne ei ollut tarpeeksi helposti laajennettava, joten tekoälyn koodi huononsi ohjelman rakennetta. Alkuperäinen koodi oli suomeksi, mikä vaikeutti osin agentin työtä.
+- Agentti muutti erityisesti KiviPaperiSakset-luokkien toteutusta, eriyttämällä ne aikaisemmasta konsoli-toteutuksesta. Muut luokat olivat suhteellisen modulaarisia, jolloin agentin ei tarvinnut muokata niitä.
+- Opin, että agenttien käytössä kannattaa laatia yksityiskohtainen suunnitelma ominaisuuksien toteuttamiselle, ja ylipäätään kannattaa edetä pienin askelein, ja korjata agentin koodin suuntaa jokaisella iteraatiolla.
