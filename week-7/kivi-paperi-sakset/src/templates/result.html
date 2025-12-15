@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tulos</title>
+  </head>
+  <body>
+    <h1>Tulos</h1>
+    <p><strong>Pelimuoto:</strong> {{ mode }}</p>
+    <p><strong>Ensimmäinen siirto:</strong> {{ move1 }}</p>
+    {% if move2 %}<p><strong>Toinen siirto:</strong> {{ move2 }}</p>{% endif %}
+    <pre>{{ result }}</pre>
+    <p><a href="/">Takaisin</a></p>
+  </body>
+</html>

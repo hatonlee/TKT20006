@@ -7,7 +7,8 @@ class YksinkertainenTekoaly:
         self._siirto = alku_siirto.value
 
     def anna_siirto(self) -> Siirto:
-        self._siirto = (self._siirto + 1) % 3
+        # advance to next move in 1..3 range
+        self._siirto = (self._siirto % 3) + 1
         return Siirto.from_int(self._siirto)
 
 
@@ -17,7 +18,8 @@ class KehittynytTekoaly:
 
     def anna_siirto(self) -> Siirto:
         if not self._muisti:
-            return Siirto.from_int(randint(0, 2))
+            # randint between 1 and 3 inclusive
+            return Siirto.from_int(randint(1, 3))
 
         suosituin_siirto = Counter(self._muisti).most_common(1)[0][0]
         return Siirto.from_int((suosituin_siirto.value + 1) % 3 + 1)

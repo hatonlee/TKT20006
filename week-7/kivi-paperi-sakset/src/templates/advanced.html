@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kehittynyt tekoäly</title>
+  </head>
+  <body>
+    <h1>Kehittynyt tekoäly</h1>
+    {% if error %}
+      <p style="color:red">Virhe: {{ error }}</p>
+    {% endif %}
+    <form method="post" action="/mode/advanced">
+      <label>Valitse siirto:</label>
+      <select name="move1">
+        <option value="k">Kivi</option>
+        <option value="s">Sakset</option>
+        <option value="p">Paperi</option>
+      </select>
+      <button type="submit">Pelaa</button>
+    </form>
+
+    <h2>Tilanne</h2>
+    <pre>{{ game.tuomari }}</pre>
+
+    <p><a href="/">Takaisin</a></p>
+  </body>
+</html>
